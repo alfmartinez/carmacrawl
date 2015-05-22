@@ -29,7 +29,7 @@ User.find({}).remove(function() {
 GameObject.find({}).remove(function() {
 	GameObject.create({
 		name: 'Flynn Corvus',
-		tag: 'Player',
+		tag: 'player',
 		layer: 'players',
 		components: [
 			ComponentFactory.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),

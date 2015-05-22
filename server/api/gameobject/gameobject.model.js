@@ -17,4 +17,10 @@ GameObjectSchema.methods = {
 	}
 };
 
+GameObjectSchema.statics = {
+	findByTag: function(tag, cb) {
+		return this.find(cb);
+	}
+};
+
 module.exports = mongoose.model('Gameobject', GameObjectSchema);

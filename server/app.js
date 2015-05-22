@@ -37,6 +37,9 @@ server.listen(config.port, config.ip, function() {
 		'env'));
 });
 
+var PlayerEngine = require('./engines/player.engine');
+loop.registerEngine(PlayerEngine);
+
 setInterval(loop.doLoop, 5000);
 
 // Expose app
