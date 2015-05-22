@@ -19,7 +19,9 @@ GameObjectSchema.methods = {
 
 GameObjectSchema.statics = {
 	findByTag: function(tag, cb) {
-		return this.find(cb);
+		return this.find({
+			tag: tag
+		}, cb);
 	}
 };
 
