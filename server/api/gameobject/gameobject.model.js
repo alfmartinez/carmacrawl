@@ -14,6 +14,11 @@ var GameObjectSchema = new Schema({
 GameObjectSchema.methods = {
   addComponent: function(component) {
     this.components.push(component);
+  },
+  getComponentByType: function(type) {
+    return this.components.filter(function(component) {
+      return component.type == type;
+    });
   }
 };
 

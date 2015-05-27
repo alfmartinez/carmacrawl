@@ -36,6 +36,15 @@ GameObject.find({}).remove(function() {
       Component.createStatus('health', 100),
       Component.createStatus('mana', 100)
     ]
+  }, {
+    name: 'Aryaa Mell',
+    tag: 'player',
+    layer: 'players',
+    components: [
+      Component.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),
+      Component.createStatus('health', 120),
+      Component.createStatus('mana', 100)
+    ]
   }, function(err, obj) {
     console.log('finished populating gameobjects');
     console.log(obj);

@@ -1,19 +1,19 @@
 'use strict';
 var GameObject = require('../api/gameobject/gameobject.model');
-var engines = [];
+var systems = [];
 
 function processInput() {
 
 }
 
 function update() {
-	engines.forEach(function(engine) {
-		engine.update(GameObject);
-	});
+  systems.forEach(function(system) {
+    system(GameObject);
+  });
 }
 
 module.exports.doLoop = update;
 
-module.exports.registerEngine = function(engine) {
-	engines.push(engine);
-}
+module.exports.registerSystem = function(system) {
+  systems.push(system);
+};
