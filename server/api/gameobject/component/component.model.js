@@ -46,14 +46,15 @@ module.exports.createGenerator = function(type, triggerEvent, template) {
   }
 };
 
-module.exports.createStatus = function(type, level) {
-  return {
-    type: 'status',
-    properties: {
+module.exports.createStatus = function(type) {
+  return function(level) {
+    return {
       type: type,
-      maxLevel: level,
-      level: level
-    }
+      properties: {
+        maxLevel: level,
+        level: level
+      }
+    };
   };
 };
 

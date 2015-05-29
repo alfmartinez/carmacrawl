@@ -31,23 +31,22 @@ GameObject.find({}).remove(function() {
     name: 'Flynn Corvus',
     tag: 'player',
     layer: 'players',
-    components: [
-      Component.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),
-      Component.createStatus('health', 100),
-      Component.createStatus('mana', 100)
-    ]
+    components: {
+      transform: Component.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),
+      health: Component.createStatus('health')(100),
+      mana: Component.createStatus('mana')(100)
+    }
   }, {
     name: 'Aryaa Mell',
     tag: 'player',
     layer: 'players',
-    components: [
-      Component.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),
-      Component.createStatus('health', 120),
-      Component.createStatus('mana', 100)
-    ]
+    components: {
+      transform: Component.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),
+      health: Component.createStatus('health')(120),
+      mana: Component.createStatus('mana')(100)
+    }
   }, function(err, obj) {
     console.log('finished populating gameobjects');
-    console.log(obj);
-    console.log('Error: ' + err);
+    if (err) console.log('Error: ' + err);
   });
 });

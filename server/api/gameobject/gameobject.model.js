@@ -8,12 +8,12 @@ var GameObjectSchema = new Schema({
   name: String,
   tag: String,
   layer: String,
-  components: [Component]
+  components: Schema.Types.Mixed
 });
 
 GameObjectSchema.methods = {
   addComponent: function(component) {
-    this.components.push(component);
+    this.components.set(component.type, component);
   },
   getComponentByType: function(type) {
     return this.components.filter(function(component) {
