@@ -3,9 +3,10 @@
  */
 
 'use strict';
-var StatusSystem = require('./systems/status');
+var HealthSystem = require('./systems/health'),
+	MovementSystem = require('./systems/movement');
 
 module.exports = function(loop) {
-	loop.registerSystem(StatusSystem);
-
+	loop.registerSystem(HealthSystem);
+	loop.registerSystem(MovementSystem);
 };

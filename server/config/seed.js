@@ -43,7 +43,8 @@ GameObject.find({}).remove(function() {
     components: {
       transform: Component.createTransform(0, 0, 0, 0, 0, 0, 0, 0, 0),
       health: Component.createStatus('health')(120),
-      mana: Component.createStatus('mana')(100)
+      mana: Component.createStatus('mana')(100),
+      velocity: Component.createVelocity(1, 1, 1)
     }
   }, function(err, obj) {
     console.log('finished populating gameobjects');

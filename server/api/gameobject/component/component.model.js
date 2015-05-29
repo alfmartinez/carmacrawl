@@ -1,15 +1,5 @@
 'use strict';
 
-var mongoose = require('mongoose'),
-  util = require('util'),
-  Schema = mongoose.Schema;
-
-var ComponentSchema = new Schema({
-  type: String,
-  properties: Schema.Types.Mixed
-});
-
-module.exports = ComponentSchema;
 module.exports.createTransform = function(px, py, pz, rx, ry, rz, sx, sy, sz) {
   var properties = {
     position: {
@@ -34,16 +24,16 @@ module.exports.createTransform = function(px, py, pz, rx, ry, rz, sx, sy, sz) {
   };
 };
 
-module.exports.createGenerator = function(type, triggerEvent, template) {
+module.exports.createVelocity = function(vx, vy, vz) {
   var properties = {
-    type: type,
-    trigger: triggerEvent,
-    template: template
+    x: vx,
+    y: vy,
+    z: vz
   };
   return {
-    type: 'generator',
+    type: 'velocity',
     properties: properties
-  }
+  };
 };
 
 module.exports.createStatus = function(type) {
@@ -57,62 +47,3 @@ module.exports.createStatus = function(type) {
     };
   };
 };
-
-module.exports.createDamage = function(damage, type) {
-  return {
-    type: 'damage',
-    properties: {
-      amount: damage,
-      type: type
-    }
-  };
-};
-
-module.exports.createRenderer = function(type, options) {
-  return {
-    type: 'renderer',
-    properties: {
-      renderer: type,
-      options: options
-    }
-  };
-};
-
-module.exports.createPlayerCharacter = function(user) {
-  return {
-    type: 'playerCharacter',
-    properties: {
-      user: user
-    }
-  };
-};
-
-module.exports.createInventory = function(item, rank) {
-  return {
-    type: 'inventory',
-    properties: {
-      item: item,
-      rank: rank
-    }
-  };
-};
-
-module.exports.createEquipped = function(item, slot) {
-  return {
-    type: 'equipped',
-    properties: {
-      item: item,
-      slot: slot
-    }
-  };
-};
-
-module.exports.createSlot = function(slot, type) {
-  return {
-    type: 'slot',
-    properties: {
-      name: slot,
-      type: type
-    }
-  }
-}
